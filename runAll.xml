@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
+    <parameter name="browserName" value="firefox"/>
+    <parameter name="driverConfigFilePath" value="./config/driver.properties" />
+    <parameter name="weburl" value="https://www.baidu.com" />
+    <parameter name="timeout" value="10" />
+    
+    
   <test name="Test">
       <packages>
           <package name="cn.learntd.testcases"></package>
       </packages>
   </test> <!-- Test -->
   <listeners>
-     <listener class-name="com.netease.qa.testng.TestResultListener"></listener>
-  	<listener class-name="com.netease.qa.testng.RetryListener"></listener>
-  	<listener class-name="com.netease.qa.testng.PowerEmailableReporter"></listener>
+    <listener class-name="cn.learntd.plugins.TestResultListener"></listener>
+  	<listener class-name="cn.learntd.plugins.RetryListener"></listener>
+  	<listener class-name="cn.learntd.plugins.PowerEmailableReporter"></listener>
   </listeners>
   
 </suite> <!-- Suite -->

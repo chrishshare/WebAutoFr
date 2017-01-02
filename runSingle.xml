@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
+    <parameter name="browserName" value="firefox">
+    <parameter name="driverConfigFilePath" value="./config/driver.properties" />
+    
   <test name="single">
       <classes>
           <class name="cn.learntd.testcases.DemoTestCase" /></package>
       </classes>
   </test> <!-- Test -->
   <listeners>
-    <listener class-name="com.netease.qa.testng.TestResultListener" />
-  	<listener class-name="com.netease.qa.testng.RetryListener" />
-  	<listener class-name="com.netease.qa.testng.PowerEmailableReporter" />
+    <listener class-name="cn.learntd.plugins.TestResultListener"></listener>
+  	<listener class-name="cn.learntd.plugins.RetryListener"></listener>
+  	<listener class-name="cn.learntd.plugins.PowerEmailableReporter"></listener>
   </listeners>
   
 </suite> <!-- Suite -->
