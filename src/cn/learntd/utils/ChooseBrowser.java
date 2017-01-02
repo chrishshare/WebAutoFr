@@ -35,11 +35,12 @@ public class ChooseBrowser {
 		//驱动声明
 		String chromeDriver_win = PropertiesDataProvider.getProData(driverConfigFilePath, "chromeDriver_win");
 		String chromeDriver_linux = PropertiesDataProvider.getProData(driverConfigFilePath, "chromeDriver_linux");
-		String firefoxDriver_win = PropertiesDataProvider.getProData(driverConfigFilePath, "firefoxDriver_win");
+		
 		String firefoxDriver_linux = PropertiesDataProvider.getProData(driverConfigFilePath, "firefoxDriver_linux");
-		String ieDriver = PropertiesDataProvider.getProData(driverConfigFilePath, "ieDriver");
+		
 		if(currentPlatform.toLowerCase().contains("win")){//windows 平台
 			if(browser.equalsIgnoreCase("ie")){
+				String ieDriver = PropertiesDataProvider.getProData(driverConfigFilePath, "ieDriver");
 				System.setProperty("webdriver.ie.driver",ieDriver);
 				DesiredCapabilities ieCapabilities = DesiredCapabilities.internetExplorer();
 				ieCapabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
@@ -48,7 +49,10 @@ public class ChooseBrowser {
 				System.setProperty("webdriver.chrome.driver",chromeDriver_win);
 				return new ChromeDriver();
 			}else if(browser.equalsIgnoreCase("firefox")){
-				return new FirefoxDriver();
+				String firefoxDriver_win = PropertiesDataProvider.getProData(driverConfigFilePath, "firefoxDriver_win");
+				System.setProperty("webdriver.gecko.driver",firefoxDriver_win);
+				DesiredCapabilities firefoxCapabilities = DesiredCapabilities.firefox();
+				return new FirefoxDriver(firefoxCapabilities);
 			}else{
 				logger.error("The [" + browser + "]" + " explorer is not applicable  for  [" + currentPlatform + "] OS");
 				Assert.fail("The [" + browser + "]" + " explorer does not apply to  [" + currentPlatform + "] OS");
