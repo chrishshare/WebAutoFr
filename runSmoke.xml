@@ -3,7 +3,11 @@
 <suite name="Suite">
     <parameter name="browserName" value="firefox">
     <parameter name="driverConfigFilePath" value="./config/driver.properties" />
-  <test name="single">
+    <parameter name="weburl" value="https://www.baidu.com" />
+    <parameter name="waitMillisecondsForAlert" value="200" />
+    <parameter name="sleepTime" value="10" />
+    <parameter name="timeout" value="10" />
+  <test name="冒烟测试">
       <classes>
           <class name="cn.learntd.testcases.DemoTestCase" /></package>
       </classes>
