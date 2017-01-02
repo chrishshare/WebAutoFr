@@ -27,8 +27,9 @@ public class Base {
 	public void startTest(ITestContext context){
 		operUtil = new CommonOperUtil();
 		this.iTestContext = context;
-		String browserName = context.getCurrentXmlTest().getParameter("");
+		String browserName = context.getCurrentXmlTest().getParameter("browserName");
 		timeout = Integer.valueOf(context.getCurrentXmlTest().getParameter("timeout"));
+		weburl = context.getCurrentXmlTest().getParameter("desurl");
 		try {
 			operUtil.launchBrowser(browserName, context, weburl, timeout);
 		} catch (Exception e) {
