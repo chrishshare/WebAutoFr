@@ -6,8 +6,10 @@ package cn.learntd.utils;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 
@@ -67,5 +69,38 @@ public class CommonOperUtil {
 	public void refresh(){
 		driver.navigate().refresh();
 		logger.info("页面刷新成功！");
+	}
+	
+	/**
+	 * 点击元素
+	 */
+	public void click(By element){
+		logger.info("即将点击[" + element +"]元素");
+		driver.findElement(element).click();;
+	}
+	
+	/**
+	 * 获取文本内容
+	 * */
+	public String getText(By element){
+		logger.info("获取到[" + element + "]元素的内容为：" + driver.findElement(element).getText().trim());
+		return driver.findElement(element).getText();
+	}
+	
+	/**
+	 * 在element文本框中输入keysToSend内容
+	 * @param element
+	 * @param keysToSend
+	 */
+	public void senkeys(By element,String keysToSend){
+		driver.findElement(element).sendKeys(keysToSend);
+	}
+	
+	/**
+	 * 选择下拉列表
+	 * */
+	public void select(By element,int index){
+		Select select = new Select(driver.findElement(element));
+		select.selectByIndex(index);
 	}
 }
