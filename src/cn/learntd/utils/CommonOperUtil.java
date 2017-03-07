@@ -63,6 +63,21 @@ public class CommonOperUtil {
 		driver.get(url);
 		logger.info("打开测试网址：" + url);
 	}
+	
+	/**
+	 * 浏览器返回按钮
+	 */
+	public void goBack(){
+		driver.navigate().back();
+	}
+	
+	/**
+	 * 浏览器向前按钮
+	 */
+	public void goForward(){
+		driver.navigate().forward();
+	}
+	
 	/**
 	 * 刷新页面
 	 */
@@ -70,6 +85,14 @@ public class CommonOperUtil {
 		driver.navigate().refresh();
 		logger.info("页面刷新成功！");
 	}
+	/**
+	 * 获取页面标题
+	 */
+	public void getTitle(){
+		logger.info("页面标题为：" + driver.getTitle());
+		driver.getTitle();
+	}
+	
 	
 	/**
 	 * 点击元素
