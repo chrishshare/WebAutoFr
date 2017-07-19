@@ -28,6 +28,7 @@ public class LoginPage_001_LoginSuccessByEN_Test extends BaseParpare{
 		Assert.assertEquals(commonOperUtil.getText(LoginPage.REMME_LABEL), "Remember me");
 		commonOperUtil.click(LoginPage.SUBMIT_BTN);
 		Assert.assertEquals(commonOperUtil.getText(LoginPage.EDIT_MY_IFO), "Edit My Info");
+		commonOperUtil.goBack();
 		
 	}
 }

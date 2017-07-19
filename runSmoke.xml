@@ -9,7 +9,7 @@
     <parameter name="timeout" value="10" />
   <test name="冒烟测试">
       <classes>
-          <class name="cn.learntd.testcases.DemoTestCase" /></package>
+          <class name="cn.learntd.testcases.LoginPage_001_LoginSuccessByCN_Test" /></package>
       </classes>
   </test> <!-- Test -->
   <listeners>

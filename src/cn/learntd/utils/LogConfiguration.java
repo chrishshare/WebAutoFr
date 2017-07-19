@@ -23,7 +23,7 @@ public class LogConfiguration {
 			prop.setProperty("log4j.appender.toFile", "org.apache.log4j.DailyRollingFileAppender");
 			prop.setProperty("log4j.appender.toFile.file", logFilePath);
 			prop.setProperty("log4j.appender.toFile.append", "false");
-			prop.setProperty("log4j.appender.toFile.Threshold", "info");
+			prop.setProperty("log4j.appender.toFile.Threshold", "debug");
 			prop.setProperty("log4j.appender.toFile.layout", "org.apache.log4j.PatternLayout");
 			prop.setProperty("log4j.appender.toFile.layout.ConversionPattern", "[%d{yyyy-MM-dd HH:mm:ss}] [%p] %m%n");
 			//使配置生效
